@@ -1,5 +1,5 @@
 {
-  "name": "node-handlebars-passport-boilerplate",
+  "name": "handlebars-passport-boilerplate",
   "version": "1.0.0",
   "description": "Project 2 Starter With Auth",
   "main": "server.js",
@@ -11,6 +11,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "bcrypt-nodejs": "0.0.3",
     "dotenv": "^7.0.0",
     "express": "^4.16.3",
@@ -30,5 +31,17 @@
     "eslint-plugin-prettier": "^3.0.1",
     "mocha": "^5.2.0",
     "prettier": "^1.16.4"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshleyFreedenberg/project-two.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/AshleyFreedenberg/project-two/issues"
+  },
+  "homepage": "https://github.com/AshleyFreedenberg/project-two#readme"
 }

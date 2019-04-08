@@ -1,6 +1,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const axios = require("axios");
 
 module.exports = app => {
   // Get all examples
@@ -56,6 +57,44 @@ module.exports = app => {
       })
       .catch(err => {
         res.status(422).json(err.errors[0].message);
+      });
+  });
+
+  app.get("/api/events", (req, res) => {
+    axios
+      .request({
+        url:
+          "https://www.eventbriteapi.com/v3/events/search?location.address=San+Diego&location.within=25mi&expand=venue",
+        headers: { Authorization: `Bearer ${process.env.eventBriteToken}` }
+      })
+      .then(response => {
+        res.json(response.data);
+      });
+  });
+
+  app.get("/api/categories", (req, res) => {
+    axios
+      .request({
+        url: "https://www.eventbriteapi.com/v3/categories/",
+        headers: { Authorization: `Bearer ${process.env.eventBriteToken}` }
+      })
+      .then(response => {
+        res.json(response.data);
+      });
+  });
+
+  app.get("/api/categories/:location/:id", (req, res) => {
+    axios
+      .request({
+        url: `https://www.eventbriteapi.com/v3/events/search/?categories=${
+          req.params.id
+        }&location.address=${
+          req.params.location
+        }&location.within=25mi&expand=venue`,
+        headers: { Authorization: `Bearer ${process.env.eventBriteToken}` }
+      })
+      .then(response => {
+        res.json(response.data);
       });
   });
 
