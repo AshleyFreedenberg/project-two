@@ -1,3 +1,8 @@
 .list-group-item {
   line-height: 2.5;
 }
+.navbar {
+  border-bottom-color:whitesmoke;
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+}
