@@ -14,7 +14,7 @@ This project is meant to be boilerplate for express, sequelize, handlebars, and 
 3. Add a `.env` at the top level of this project. 
 
 4. Then inside of the .env add a SERVER_SECRET set to any value you'd like
-```
+
 SERVER_SECRET = 123456
 ```
 
