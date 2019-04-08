@@ -1,5 +1,7 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS myEventsdb;
+CREATE DATABASE myEventsdb;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+USE myEventsdb;
+
+Select * From Users;
+Select * From Events;
