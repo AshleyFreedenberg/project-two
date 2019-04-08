@@ -28,6 +28,11 @@ module.exports = app => {
     });
   });
 
+  app.get("/motorcycle",(req, res)=> {
+    // res.send("riding")
+    res.render("motorcycle");
+  })
+
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => res.render("404"));
 };
