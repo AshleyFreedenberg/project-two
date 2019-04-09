@@ -83,12 +83,15 @@ module.exports = app => {
       });
   });
 
-  app.get("/api/categories/:location/:id", (req, res) => {
+  app.get("/api/:location/:id/:start_date/:end_date", (req, res) => {
+    const endpoint = "https://www.eventbriteapi.com/v3/events/search/";
     axios
       .request({
-        url: `https://www.eventbriteapi.com/v3/events/search/?categories=${
-          req.params.id
-        }&location.address=${
+        url: `${endpoint}?categories=${req.params.id}&start_date.range_start=${
+          req.params.start_date
+        }T00:00:01Z&start_date.range_end=${
+          req.params.end_date
+        }T00:00:01Z&location.address=${
           req.params.location
         }&location.within=25mi&expand=venue`,
         headers: { Authorization: `Bearer ${process.env.eventBriteToken}` }
@@ -104,3 +107,8 @@ module.exports = app => {
     res.redirect("/");
   });
 };
+
+// console.log(req.params.location);
+// console.log(req.params.id);
+// console.log(req.params.start_date);
+// console.log(req.params.end_date);
