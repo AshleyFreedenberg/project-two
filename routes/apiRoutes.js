@@ -49,11 +49,29 @@ module.exports = app => {
   app.post("/api/signup", (req, res) => {
     console.log(req.body);
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      username: req.body.username,
+      password: req.body.password,
+      instagram: req.body.instagram,
+      facebook: req.body.facebook
     })
       .then(() => {
         res.redirect(307, "/api/login");
+      })
+      .catch(err => {
+        res.status(422).json(err.errors[0].message);
+      });
+  });
+
+  app.post("/api/saved_event", (req, res) => {
+    console.log(req.body);
+    db.Event.create({
+      // eslint-disable-next-line camelcase
+      eventbrite_id: req.body.eventbrite_id
+    })
+      .then(() => {
+        res.redirect(307, "/profile");
       })
       .catch(err => {
         res.status(422).json(err.errors[0].message);
