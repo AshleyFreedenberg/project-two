@@ -51,7 +51,9 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
         <p class="card-text"><small class="text-muted">${event[i].start.local}</small></p>
         <p class="card-text"><small class="text-muted">${event[i].end.local}</small></p>
     </div>
-</div></div><br>`;
+</div>
+<br>
+</div>`;
     }
 
     const $card = $(`
