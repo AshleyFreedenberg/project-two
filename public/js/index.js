@@ -11,44 +11,44 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
     // // -----------------------------------------------------------------------
     // // directly below are specifically for the variables in the const url for this function
     console.log(eventsData);
-    // console.log(eventsData.location.augmented_location);
-    // console.log(eventsData.events[1].category_id);
-    // console.log(eventsData.events[1].end.local);
-    // console.log(eventsData.events[1].start.local);
+//     // console.log(eventsData.location.augmented_location);
+//     // console.log(eventsData.events[1].category_id);
+//     // console.log(eventsData.events[1].end.local);
+//     // console.log(eventsData.events[1].start.local);
 
-    // // -----------------------------------------------------------------------
-    // // // location details (to print to the events cards, etc.)
-    // console.log(eventsData.location.augmented_location.city);
-    // console.log(eventsData.location.augmented_location.region);
-    // console.log(eventsData.location.augmented_location.country);
+//     // // -----------------------------------------------------------------------
+//     // // // location details (to print to the events cards, etc.)
+//     // console.log(eventsData.location.augmented_location.city);
+//     // console.log(eventsData.location.augmented_location.region);
+//     // console.log(eventsData.location.augmented_location.country);
 
-    // // -----------------------------------------------------------------------
-    // console.log(eventsData.events[1]);
-    // console.log(eventsData.events[1].url);
-    // console.log(eventsData.events[1].description.text);
-    // console.log(eventsData.events[1].name.text);
-    // -----------------------------------------------------------------------
+//     // // -----------------------------------------------------------------------
+//     // console.log(eventsData.events[1]);
+//     // console.log(eventsData.events[1].url);
+//     // console.log(eventsData.events[1].description.text);
+//     // console.log(eventsData.events[1].name.text);
+//     // -----------------------------------------------------------------------
 
-  // create html elements to hold each event card, 
-  // .....header, image, p tags for descriptions 
-  // add events data from server to cards 
+//   // create html elements to hold each event card, 
+//   // .....header, image, p tags for descriptions 
+//   // add events data from server to cards 
 
-  // TODO:
-  // add a containing element to template to hold the cards
-  // create a variable that references the containing element
-  // copy michaels' event card example
-  // create a variable to hold a new event card element (use jquery)
-  // add the new element to the page (also uses jquery)
+//   // TODO:
+//   // add a containing element to template to hold the cards
+//   // create a variable that references the containing element
+//   // copy michaels' event card example
+//   // create a variable to hold a new event card element (use jquery)
+// //   // add the new element to the page (also uses jquery)
   const event = eventsData.events[1];
 
-  const $card = $(`<div class="card">
-  <img src=event.url>
-    class="card-img-top" alt="...">
+  const $card = $(`<br><img src="` + event.logo.original.url + `"
+  class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">` + event.name.text + `</h5>
+    <p class="card-text"><small class="text-muted">`+ eventsData.location.augmented_location.city + `</small></p>
     <p class="card-text">` + event.description.text + `</p>
-    <p class="card-text"><small class="text-muted"></small></p>
-  </div>
+    <p class="card-text"><small class="text-muted">` + event.start.local + `</small></p>
+    <p class="card-text"><small class="text-muted">`+ event.end.local + `</small></p>
 </div>`);
     const $container = $("#event-card-container")
     $container.append($card);
