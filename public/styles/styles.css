@@ -7,7 +7,15 @@
     border-bottom-style: solid;
 }
 .navbar-brand {
-  font-size: 50px;
+  font-size: 25px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
+
+.carousel-inner .carousel-item{
+  width:100%;
+  max-height: 500px !important;
+  margin: auto;
+}
+
+
