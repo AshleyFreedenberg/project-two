@@ -47,15 +47,18 @@
         <ul class="navbar-nav">
           {{#unless user}}
           <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="/"><i class="fas fa-user-plus" style="color:white;"></i>
+            <a class="nav-link" style="color:white;" id="signup" href="/"><i class="fas fa-user-plus"
+                style="color:white;"></i>
               Signup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="/login"><i class="fas fa-sign-in-alt" style="color:white;"></i>
+            <a class="nav-link" style="color:white;" id="login" href="/login"><i class="fas fa-sign-in-alt"
+                style="color:white;"></i>
               Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="/motorcycle"><i class="far fa-calendar-alt" style="color:white;"></i>
+            <a class="nav-link" style="color:white;" href="/motorcycle"><i class="far fa-calendar-alt"
+                style="color:white;"></i>
               Events</a>
           </li>
           {{/unless}}
@@ -116,6 +119,52 @@
 
   <div class="container">
     {{{body}}}
+    <div id="signUpForm">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Sign Up</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp"
+                placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+              <label for="username">UserName</label>
+              <input type="username" name="username" class="form-control" id="username" aria-describedby="userHelp"
+                placeholder="Enter user name">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="instagram"><i class="fab fa-instagram"></i>
+                Instagram</label>
+              <input type="instagram" name="instagram" class="form-control" id="instagram"
+                aria-describedby="instagramHelp" placeholder="Enter instagram">
+            </div>
+            <div class="form-group">
+              <label for="Facebook"><i class="fab fa-facebook-square"></i>
+                Facebook</label>
+              <input type="Facebook" name="Facebook" class="form-control" id="facebook" placeholder="Enter facebook">
+            </div>
+            <button type="submit" class="btn btn-primary" id="user-sign-up">Submit</button>
+          </form>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div id="event-card-container"></div>
   </div>
 
 
