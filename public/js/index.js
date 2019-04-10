@@ -38,16 +38,17 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
 //   // create a variable that references the containing element
 //   // copy michaels' event card example
 //   // create a variable to hold a new event card element (use jquery)
-//   // add the new element to the page (also uses jquery)
+// //   // add the new element to the page (also uses jquery)
   const event = eventsData.events[1];
 
-  const $card = $(`<img src="` + event.logo.original.url + `"
+  const $card = $(`<br><img src="` + event.logo.original.url + `"
   class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">` + event.name.text + `</h5>
+    <p class="card-text"><small class="text-muted">`+ eventsData.location.augmented_location.city + `</small></p>
     <p class="card-text">` + event.description.text + `</p>
-    <p class="card-text"><small class="text-muted">` + event.location + `</small></p>
-  </div>
+    <p class="card-text"><small class="text-muted">` + event.start.local + `</small></p>
+    <p class="card-text"><small class="text-muted">`+ event.end.local + `</small></p>
 </div>`);
     const $container = $("#event-card-container")
     $container.append($card);
