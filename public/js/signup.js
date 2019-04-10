@@ -1,14 +1,14 @@
 $(document).ready(function() {
   function start() {
     $("#signUpForm").hide();
-    $("#login").hide();
+    $("#loginBtn").hide();
   }
   start();
 
   $("#signup").on("click", function(e) {
     e.preventDefault();
     $("#signUpForm").show();
-    $("#login").hide();
+    $("#loginBtn").hide();
     $("#signUpForm")[0].scrollIntoView();
   });
 
