@@ -4,9 +4,62 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+function queryEventbrite(location, startDate, endDate, categoryId) {
+  const url = '/api/' + location + '/' + categoryId + '/' + startDate + '/' + endDate
+  console.log(url);
+  $.get(url, function (eventsData) {
+    // // -----------------------------------------------------------------------
+    // // directly below are specifically for the variables in the const url for this function
+    console.log(eventsData);
+    // console.log(eventsData.location.augmented_location);
+    // console.log(eventsData.events[1].category_id);
+    // console.log(eventsData.events[1].end.local);
+    // console.log(eventsData.events[1].start.local);
+
+    // // -----------------------------------------------------------------------
+    // // // location details (to print to the events cards, etc.)
+    // console.log(eventsData.location.augmented_location.city);
+    // console.log(eventsData.location.augmented_location.region);
+    // console.log(eventsData.location.augmented_location.country);
+
+    // // -----------------------------------------------------------------------
+    // console.log(eventsData.events[1]);
+    // console.log(eventsData.events[1].url);
+    // console.log(eventsData.events[1].description.text);
+    // console.log(eventsData.events[1].name.text);
+    // -----------------------------------------------------------------------
+
+  // create html elements to hold each event card, 
+  // .....header, image, p tags for descriptions 
+  // add events data from server to cards 
+
+  // TODO:
+  // add a containing element to template to hold the cards
+  // create a variable that references the containing element
+  // copy michaels' event card example
+  // create a variable to hold a new event card element (use jquery)
+  // add the new element to the page (also uses jquery)
+  const event = eventsData.events[1];
+
+  const $card = $(`<div class="card">
+  <img src=event.url>
+    class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">` + event.name.text + `</h5>
+    <p class="card-text">` + event.description.text + `</p>
+    <p class="card-text"><small class="text-muted"></small></p>
+  </div>
+</div>`);
+    const $container = $("#event-card-container")
+    $container.append($card);
+  });
+}
+
+queryEventbrite('San Diego', '2019-04-10', '2019-04-12', '103');
+
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function (example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -16,13 +69,13 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getExamples: function () {
     return $.ajax({
       url: "api/examples",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -31,9 +84,9 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshExamples = function () {
+  API.getExamples().then(function (data) {
+    var $examples = data.map(function (example) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -61,7 +114,7 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var example = {
@@ -74,7 +127,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(example).then(function () {
     refreshExamples();
   });
 
@@ -84,12 +137,12 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };
