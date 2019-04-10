@@ -4,6 +4,9 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+// const moment = require('moment');
+// moment().format();
+
 function queryEventbrite(location, startDate, endDate, categoryId) {
   const url = '/api/' + location + '/' + categoryId + '/' + startDate + '/' + endDate
   console.log(url);
@@ -29,12 +32,10 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
     //     // console.log(eventsData.events[1].name.text);
     //     // -----------------------------------------------------------------------
 
-    //   // TODO:
-    //   // add a containing element to template to hold the cards
-    //   // create a variable that references the containing element
-    //   // copy michaels' event card example
-    //   // create a variable to hold a new event card element (use jquery)
-    // //   // add the new element to the page (also uses jquery)
+    // const eventBriteStartDate = event[i].start.local;
+    // const eventBriteEndDate = event[i].end.local;
+    // const convertedDate = moment() 
+
     const event = eventsData.events;
     let cardData = "";
     for (let i = 0; i < event.length; i++) {
@@ -46,11 +47,11 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
     <div class="card-body">
         <h5 class="card-title">${event[i].name.text}</h5>
         <p class="card-text"><small class="text-muted">${eventsData.location.augmented_location.city}</small></p>
-        <p class="card-text">${event[i].description.text}</p>
+        <p class="card-text"><span class="d-inline-block text-truncate" style="max-width: 200px;">${event[i].description.text}</span></p>
         <p class="card-text"><small class="text-muted">${event[i].start.local}</small></p>
         <p class="card-text"><small class="text-muted">${event[i].end.local}</small></p>
     </div>
-</div></div>`;
+</div></div><br>`;
     }
 
     const $card = $(`
