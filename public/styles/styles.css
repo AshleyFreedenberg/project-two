@@ -12,10 +12,14 @@
 
 }
 
-.carousel-inner .carousel-item{
+.carousel-inner .carousel-item {
   width:100%;
   max-height: 500px !important;
   margin: auto;
 }
 
+.card {
+  min-height: 500px;
+  max-height: 500px;
+}
 
