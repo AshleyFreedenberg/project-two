@@ -39,7 +39,7 @@
         <ul class="navbar-nav mr-auto">
           {{#if user}}
           <li class="nav-item">
-            <a class="nav-link" href="/profile" style="color:white;">Profile</a>
+            <a class="nav-link" href="/profile" style="color:white;">Profile Page</a>
           </li>
           {{/if}}
         </ul>
@@ -58,7 +58,14 @@
           {{/unless}}
           {{#if user}}
           <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link" style="color:white;" id="savedEvents"><i class="far fa-share-square" style="color:white;"></i>
+            Saved Events</a>
+          </li>
+          {{/if}}
+          {{#if user}}
+          <li class="nav-item">
+            <a class="nav-link" style="color:white;" href="/logout"><i class="fas fa-sign-out-alt" style="color:white;"></i>
+            Logout</a>
           </li>
           {{/if}}
         </ul>

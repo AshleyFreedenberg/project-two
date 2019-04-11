@@ -1,4 +1,4 @@
-$("#login-btn").on("submit", function(e) {
+$("#user-login").on("submit", function(e) {
   e.preventDefault();
   $.ajax({
     method: "POST",
@@ -7,16 +7,17 @@ $("#login-btn").on("submit", function(e) {
       email: $("#login-email")
         .val()
         .trim(),
-      password: $("#password")
+      password: $("#login-password")
         .val()
         .trim()
     }
   })
-    .then(function(data) {
+    .then(function (data) {
       console.log(data);
       window.location.replace(data);
+      // start();
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
       alert(err.responseText);
     });

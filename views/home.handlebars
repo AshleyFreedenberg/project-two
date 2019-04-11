@@ -67,10 +67,19 @@
                     <input type="password" name="password" class="form-control" id="login-password"
                         placeholder="Password">
                 </div>
-                <button type="submit" id="login-btn" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
+    <br>
+    <div id="savedEventsSection">
+        <h4>Saved Events</h4>
+    </div>
+    <div class="col-1"><button type="button" id="hide" class="btn btn-outline-success">Hide Saved Events</button>
+    </div>
+    <br>
+    <div id="saved-event-card-container"></div>
+</div>
 </div>
 <h4>Embark on your next Grand Adventure ... get started by searching for events!</h4>
 <div class="container">
@@ -118,7 +127,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-1"><button type="button" id="search" class="btn btn-outline-success">Search</button></div>
+                <div class="col-1"><button type="button" id="search" class="btn btn-outline-success">Search</button>
+                </div>
             </div>
     </form>
 </div>
