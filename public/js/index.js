@@ -14,6 +14,7 @@ function queryEventbrite(location, endDate, categoryId) {
 
   $.get(url, function (eventsData) {
     const event = eventsData.events;
+    const showBtn = (window.location.pathname === "/profile") ? '<button type="button" class="btn btn-outline-success save-btn">Save Event!</button>': "";
     let cardData = "";
     for (let i = 0; i < event.length; i++) {
       let cardImg = event[i].logo.original.url
@@ -25,7 +26,9 @@ function queryEventbrite(location, endDate, categoryId) {
         <h5 class="card-title">${event[i].name.text}</h5>
         <p class="card-text"><small class="text-muted">${eventsData.location.augmented_location.city}</small></p>
         <p class="card-text"><span class="d-inline-block text-truncate" style="max-width: 200px;">${event[i].description.text}</span></p>
-        <p class="card-text"><small class="text-muted">${eventsData.events[i].end.local}</small></p>
+        <p class="card-text"><small class="text-muted">${moment(eventsData.events[i].end.local).format('dddd MMMM Do YYYY')}</small></p>
+        ${showBtn}
+       
     </div>
     </a>
 </div>
