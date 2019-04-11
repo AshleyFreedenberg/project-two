@@ -1,8 +1,85 @@
-<div id="savedEvents">
-<h4>Saved Events</h4>
-
+<br>
+<div id="signUpForm">
+    <div class="row">
+        <div class="card-header col-md-12">
+            <h1>Sign Up</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp"
+                        placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input type="username" name="username" class="form-control" id="username"
+                        aria-describedby="userHelp" placeholder="Enter user name">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="instagram"><i class="fab fa-instagram"></i>
+                        Instagram</label>
+                    <input type="instagram" name="instagram" class="form-control" id="instagram"
+                        aria-describedby="instagramHelp" placeholder="Enter instagram">
+                </div>
+                <div class="form-group">
+                    <label for="Facebook"><i class="fab fa-facebook-square"></i>
+                        Facebook</label>
+                    <input type="Facebook" name="Facebook" class="form-control" id="facebook"
+                        placeholder="Enter facebook">
+                </div>
+                <button type="submit" class="btn btn-primary" id="user-sign-up">Submit</button>
+            </form>
+            <br>
+        </div>
+    </div>
 </div>
+<div id="loginForm">
+    <div class="row">
+        <div class="card-headercol-md-12">
+            <h1>Login</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form id="user-login">
+                <div class="form-group">
+                    <label for="login-email"><i class="fas fa-envelope-open-text"></i>
+                        Email address</label>
 
+                    <input type="email" name="email" class="form-control" id="login-email" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password"><i class="fas fa-unlock-alt"></i>
+                        Password</label>
+
+                    <input type="password" name="password" class="form-control" id="login-password"
+                        placeholder="Password">
+                </div>
+                <button type="submit" id="login-btn" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div id="savedEventsSection">
+        <h4>Saved Events</h4>
+    </div>
+    <div class="col-1"><button type="button" id="hide" class="btn btn-outline-success">Hide Saved Events</button>
+    </div>
+    <br>
+    <div id="saved-event-card-container"></div>
+</div>
 </div>
 <h4>Embark on your next Grand Adventure ... get started by searching for events!</h4>
 <div class="container">
@@ -50,7 +127,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-1"><button type="button" id="search" class="btn btn-outline-success">Search</button></div>
+                <div class="col-1"><button type="button" id="search" class="btn btn-outline-success">Search</button>
+                </div>
             </div>
     </form>
 </div>

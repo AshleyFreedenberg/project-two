@@ -2,12 +2,14 @@ $(document).ready(function() {
   function start() {
     $("#signUpForm").hide();
     $("#loginForm").hide();
+    $("#savedEventsSection").hide();
   }
   start();
 
   $("#signup").on("click", function(e) {
     e.preventDefault();
     $("#signUpForm").show();
+    $("#savedEventsSection").hide();
     $("#loginForm").hide();
     $("#signUpForm")[0].scrollIntoView();
   });
@@ -16,6 +18,7 @@ $(document).ready(function() {
     e.preventDefault();
     $("#signUpForm").hide();
     $("#loginForm").show();
+    $("#savedEventsSection").hide();
     $("#loginForm")[0].scrollIntoView();
   });
 
