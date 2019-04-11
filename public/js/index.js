@@ -20,7 +20,7 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
       let cardImg = event[i].logo.original.url
         ? event[i].logo.original.url
         : "https://placeholder.com/";
-      cardData += `<div class="col-md-4"><div class="card"><br>
+      cardData += `<div class="col-md-4"><a href="${eventsData.events[i].url}" target="_blank"><div class="card"><br>
     <img src="${cardImg}" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">${event[i].name.text}</h5>
@@ -28,6 +28,7 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
         <p class="card-text"><span class="d-inline-block text-truncate" style="max-width: 200px;">${event[i].description.text}</span></p>
         <p class="card-text"><small class="text-muted">${event[i].start.local}</small></p>
     </div>
+    </a>
 </div>
 <br>
 </div>`;
