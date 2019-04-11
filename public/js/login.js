@@ -1,10 +1,10 @@
-$("#user-login").on("submit", function(e) {
+$("#login-btn").on("submit", function(e) {
   e.preventDefault();
   $.ajax({
     method: "POST",
     url: "/api/login",
     data: {
-      email: $("#email")
+      email: $("#login-email")
         .val()
         .trim(),
       password: $("#password")
