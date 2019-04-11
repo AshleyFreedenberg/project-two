@@ -14,7 +14,7 @@ function queryEventbrite(location, endDate, categoryId) {
 
   $.get(url, function (eventsData) {
     const event = eventsData.events;
-    const showBtn = (window.location.pathname === "/profile") ? '<button type="button" id="search" class="btn btn-outline-success">Save Event!</button>': "";
+    const showBtn = (window.location.pathname === "/profile") ? '<button type="button" class="btn btn-outline-success save-btn">Save Event!</button>': "";
     let cardData = "";
     for (let i = 0; i < event.length; i++) {
       let cardImg = event[i].logo.original.url
