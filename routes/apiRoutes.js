@@ -98,24 +98,22 @@ module.exports = app => {
       });
   });
 
-  app.get("/api/categories", (req, res) => {
-    axios
-      .request({
-        url: "https://www.eventbriteapi.com/v3/categories/",
-        headers: { Authorization: `Bearer ${process.env.eventBriteToken}` }
-      })
-      .then(response => {
-        res.json(response.data);
-      });
-  });
+  // app.get("/api/categories", (req, res) => {
+  //   axios
+  //     .request({
+  //       url: "https://www.eventbriteapi.com/v3/categories/",
+  //       headers: { Authorization: `Bearer ${process.env.eventBriteToken}` }
+  //     })
+  //     .then(response => {
+  //       res.json(response.data);
+  //     });
+  // });
 
-  app.get("/api/:location/:id/:start_date/:end_date", (req, res) => {
+  app.get("/api/:location/:id/:end_date", (req, res) => {
     const endpoint = "https://www.eventbriteapi.com/v3/events/search/";
     axios
       .request({
-        url: `${endpoint}?categories=${req.params.id}&start_date.range_start=${
-          req.params.start_date
-        }T00:00:01Z&start_date.range_end=${
+        url: `${endpoint}?categories=${req.params.id}&start_date.range_end=${
           req.params.end_date
         }T00:00:01Z&location.address=${
           req.params.location
