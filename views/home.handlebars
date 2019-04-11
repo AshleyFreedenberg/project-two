@@ -64,59 +64,69 @@
                     <label for="login-password"><i class="fas fa-unlock-alt"></i>
                         Password</label>
 
-                    <input type="password" name="password" class="form-control" id="login-password" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="login-password"
+                        placeholder="Password">
                 </div>
                 <button type="submit" id="login-btn" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
 </div>
-<br>
-
+<h4>Embark on your next Grand Adventure ... get started by searching for events!</h4>
 <div class="container">
-  <div class="row">
+    <div id="line1" style="border-bottom: 2px solid grey;"></div>
     <br>
-
-  <div class="col-3">
-      <p>Location: <input type="text" id="search" placeholder="City"></p>
-    </div>
-
-    <div class="col-3">
-      <p>Date: <input type="text" id="datepicker" placeholder="Select from calendar"></p>
-    </div>
-    <div class="col-3">
-      <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Category
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" value = "105" href="#">Arts</a>
-          <a class="dropdown-item" value = "118" href="#">Auto, Boat, Air</a>
-          <a class="dropdown-item" value = "101" href="#">Business</a>
-          <a class="dropdown-item" value = "111" href="#">Charity and Causes</a>
-          <a class="dropdown-item" value = "113" href="#">Community</a>
-          <a class="dropdown-item" value = "115" href="#">Family and Education</a>
-          <a class="dropdown-item" value = "106" href="#">Fashion</a>
-          <a class="dropdown-item" value = "104" href="#">Film and Media</a>
-          <a class="dropdown-item" value = "110" href="#">Food and Drink</a>
-          <a class="dropdown-item" value = "112" href="#">Government</a>
-          <a class="dropdown-item" value = "107" href="#">Health</a>
-          <a class="dropdown-item" value = "119" href="#">Hobbies</a>
-          <a class="dropdown-item" value = "116" href="#">Holiday</a>
-          <a class="dropdown-item" value = "117" href="#">Home and Lifestyle</a>
-          <a class="dropdown-item" value = "103" href="#">Music</a>
-          <a class="dropdown-item" value = "120" href="#">School Activities</a>
-          <a class="dropdown-item" value = "102" href="#">Science and Tech</a>
-          <a class="dropdown-item" value = "114" href="#">Spirituality</a>
-          <a class="dropdown-item" value = "108" href="#">Sports and Fitness</a>
-          <a class="dropdown-item" value = "109" href="#">Travel and Outdoor</a>
-          <a class="dropdown-item" value = "199" href="#"> Other</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-3"><button type="button" class="btn btn-outline-success">Search</button></div>
-  </div>
-
-<br><div id="event-card-container"></div>
+    <form>
+        <div class="container" style="margin-left:5.5%; margin-bottom:5px;">
+            <div class="row">
+                <br>
+                <div class="col-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="datepicker" placeholder="Select Date">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="location" placeholder="Enter Location by City">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <select class="custom-select" id="categories">
+                            <option selected>Categories</option>
+                            <option value="105">Arts</option>
+                            <option value="118">Auto, Boat, Air</option>
+                            <option value="101">Business</option>
+                            <option value="111">Charity and Causes</option>
+                            <option value="113">Community</option>
+                            <option value="115">Family and Education</option>
+                            <option value="106">Fashion</option>
+                            <option value="104">Film and Media</option>
+                            <option value="110">Food and Drink</option>
+                            <option value="112">Government</option>
+                            <option value="107">Health</option>
+                            <option value="119">Hobbies</option>
+                            <option value="116">Holiday</option>
+                            <option value="117">Home and Lifestyle</option>
+                            <option value="103">Music</option>
+                            <option value="120">School Activities</option>
+                            <option value="102">Science and Tech</option>
+                            <option value="114">Spirituality</option>
+                            <option value="108">Sports and Fitness</option>
+                            <option value="109">Travel and Outdoor</option>
+                            <option value="199">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-1"><button type="button" class="btn btn-outline-success">Search</button></div>
+            </div>
+    </form>
+</div>
+<div id="line2" style="border-bottom: 2px solid grey;"></div>
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>
+<br>
+<div id="event-card-container"></div>
