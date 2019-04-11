@@ -1,7 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Example = sequelize.define("Example", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+    url: DataTypes.STRING
   });
 
   Example.associate = function(models) {
