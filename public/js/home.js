@@ -22,6 +22,20 @@ $(document).ready(function() {
     $("#loginForm")[0].scrollIntoView();
   });
 
+  $("#savedEvents").on("click", function(e){
+    e.preventDefault();
+    $("#signUpForm").hide();
+    $("#savedEventsSection").show();
+    $("#loginForm").hide();
+  });
+
+  $("#hide").on("click", function(e){
+    e.preventDefault();
+    $("#signUpForm").hide();
+    $("#savedEventsSection").hide();
+    $("#loginForm").hide();
+  });
+
   $("#user-sign-up").on("click", function(e) {
     e.preventDefault();
     $.ajax({
