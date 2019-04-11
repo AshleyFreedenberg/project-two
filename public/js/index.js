@@ -25,7 +25,8 @@ function queryEventbrite(location, endDate, categoryId) {
         <h5 class="card-title">${event[i].name.text}</h5>
         <p class="card-text"><small class="text-muted">${eventsData.location.augmented_location.city}</small></p>
         <p class="card-text"><span class="d-inline-block text-truncate" style="max-width: 200px;">${event[i].description.text}</span></p>
-        <p class="card-text"><small class="text-muted">${eventsData.events[i].end.local}</small></p>
+        <p class="card-text"><small class="text-muted">${moment(eventsData.events[i].end.local).format('dddd MMMM Do YYYY')}</small></p>
+        <button type="button" id="search" class="btn btn-outline-success">Save Event!</button>
     </div>
     </a>
 </div>
