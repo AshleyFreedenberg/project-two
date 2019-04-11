@@ -7,13 +7,12 @@ var $exampleList = $("#example-list");
 // const moment = require('moment');
 // moment().format();
 
-function queryEventbrite(location, startDate, endDate, categoryId) {
-  const url = '/api/' + location + '/' + categoryId + '/' + startDate + '/' + endDate
-  console.log(url);
+function queryEventbrite(location, endDate, categoryId) {
+  const url = "/api/" + location + "/" + categoryId + "/" + endDate;
+  const $container = $("#event-card-container");
+  $container.empty();
+
   $.get(url, function (eventsData) {
-    // // -----------------------------------------------------------------------
-    // // directly below are specifically for the variables in the const url for this function
-    console.log(eventsData);
     const event = eventsData.events;
     let cardData = "";
     for (let i = 0; i < event.length; i++) {
@@ -26,34 +25,39 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
         <h5 class="card-title">${event[i].name.text}</h5>
         <p class="card-text"><small class="text-muted">${eventsData.location.augmented_location.city}</small></p>
         <p class="card-text"><span class="d-inline-block text-truncate" style="max-width: 200px;">${event[i].description.text}</span></p>
-        <p class="card-text"><small class="text-muted">${event[i].start.local}</small></p>
+        <p class="card-text"><small class="text-muted">${moment(eventsData.events[i].end.local).format('dddd MMMM Do YYYY')}</small></p>
+        <button type="button" id="search" class="btn btn-outline-success">Save Event!</button>
     </div>
     </a>
 </div>
 <br>
 </div>`;
     }
-
     const $card = $(`
       <div class="card-deck">
           ${cardData}
       </div>
   `);
-    const $container = $("#event-card-container");
     $container.append($card);
   });
 }
+// ${moment(eventsData.events[i].end.local).format('dddd MMMM Do YYYY')}
+// queryEventbrite();
 
-queryEventbrite('San Diego', '2019-04-10', '2019-04-12', '103');
+$("#search").on("click", function (e) {
+  e.preventDefault();
+  const date = moment($("#datepicker").val()).format("YYYY-MM-DD");
+  const location = $("#location").val().trim();
+  const category = $(".categories").val();
+  console.log(date);
+  console.log(location);
+  console.log(category);
+  queryEventbrite(location, date, category);
+});
 
+queryEventbrite("San Diego", "2019-05-19", "103");
 
-
-
-
-
-
-
-
+// -----------------------------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function (example) {
