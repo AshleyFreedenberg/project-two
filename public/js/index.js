@@ -27,7 +27,6 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
         <p class="card-text"><small class="text-muted">${eventsData.location.augmented_location.city}</small></p>
         <p class="card-text"><span class="d-inline-block text-truncate" style="max-width: 200px;">${event[i].description.text}</span></p>
         <p class="card-text"><small class="text-muted">${event[i].start.local}</small></p>
-        <p class="card-text"><small class="text-muted">${event[i].end.local}</small></p>
     </div>
 </div>
 <br>
