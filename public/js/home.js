@@ -19,6 +19,16 @@ $(document).ready(function() {
     $("#loginForm")[0].scrollIntoView();
   });
 
+  $("#search").on("click", function(e) {
+    e.preventDefault();
+    const date = $("#datepicker").val();
+    const location = $("#location").val().trim();
+    const category = $(".categories").val();
+    console.log(date);
+    console.log(location);
+    console.log(category);
+  });
+
   $("#user-sign-up").on("click", function(e) {
     e.preventDefault();
     $.ajax({
