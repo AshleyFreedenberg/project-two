@@ -4,7 +4,7 @@ $("#user-login").on("submit", function(e) {
     method: "POST",
     url: "/api/login",
     data: {
-      email: $("#email")
+      email: $("#login-email")
         .val()
         .trim(),
       password: $("#password")

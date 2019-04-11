@@ -14,35 +14,13 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
     // // -----------------------------------------------------------------------
     // // directly below are specifically for the variables in the const url for this function
     console.log(eventsData);
-    //     // console.log(eventsData.location.augmented_location);
-    //     // console.log(eventsData.events[1].category_id);
-    //     // console.log(eventsData.events[1].end.local);
-    //     // console.log(eventsData.events[1].start.local);
-
-    //     // // -----------------------------------------------------------------------
-    //     // // // location details (to print to the events cards, etc.)
-    //     // console.log(eventsData.location.augmented_location.city);
-    //     // console.log(eventsData.location.augmented_location.region);
-    //     // console.log(eventsData.location.augmented_location.country);
-
-    //     // // -----------------------------------------------------------------------
-    //     // console.log(eventsData.events[1]);
-    //     // console.log(eventsData.events[1].url);
-    //     // console.log(eventsData.events[1].description.text);
-    //     // console.log(eventsData.events[1].name.text);
-    //     // -----------------------------------------------------------------------
-
-    // const eventBriteStartDate = event[i].start.local;
-    // const eventBriteEndDate = event[i].end.local;
-    // const convertedDate = moment() 
-
     const event = eventsData.events;
     let cardData = "";
     for (let i = 0; i < event.length; i++) {
       let cardImg = event[i].logo.original.url
         ? event[i].logo.original.url
         : "https://placeholder.com/";
-      cardData += `<div class="col-md-4"><div class="card">
+      cardData += `<div class="col-md-4"><div class="card"><br>
     <img src="${cardImg}" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">${event[i].name.text}</h5>
@@ -67,6 +45,14 @@ function queryEventbrite(location, startDate, endDate, categoryId) {
 }
 
 queryEventbrite('San Diego', '2019-04-10', '2019-04-12', '103');
+
+
+
+
+
+
+
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -161,3 +147,25 @@ var handleDeleteBtnClick = function () {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+ //     // console.log(eventsData.location.augmented_location);
+    //     // console.log(eventsData.events[1].category_id);
+    //     // console.log(eventsData.events[1].end.local);
+    //     // console.log(eventsData.events[1].start.local);
+
+    //     // // -----------------------------------------------------------------------
+    //     // // // location details (to print to the events cards, etc.)
+    //     // console.log(eventsData.location.augmented_location.city);
+    //     // console.log(eventsData.location.augmented_location.region);
+    //     // console.log(eventsData.location.augmented_location.country);
+
+    //     // // -----------------------------------------------------------------------
+    //     // console.log(eventsData.events[1]);
+    //     // console.log(eventsData.events[1].url);
+    //     // console.log(eventsData.events[1].description.text);
+    //     // console.log(eventsData.events[1].name.text);
+    //     // -----------------------------------------------------------------------
+
+    // const eventBriteStartDate = event[i].start.local;
+    // const eventBriteEndDate = event[i].end.local;
+    // const convertedDate = moment() 
