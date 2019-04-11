@@ -14,8 +14,11 @@
 
 .carousel-inner .carousel-item {
   width:100%;
-  max-height: 500px !important;
-  margin: auto;
+}
+
+.homePhoto {
+  max-height: 550px !important;
+  min-width: 100%;
 }
 
 .card {
@@ -23,3 +26,7 @@
   max-height: 500px;
 }
 
+h4 {
+  text-align: center;
+  margin-bottom: 18px;
+}
